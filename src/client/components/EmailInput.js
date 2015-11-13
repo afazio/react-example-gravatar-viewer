@@ -1,11 +1,6 @@
 import React from 'react';
 
 class EmailInput extends React.Component {
-  onSubmit(event) {
-    this.props.onUpdate(this.refs.email.value);
-    event.preventDefault();
-    return false;
-  }
 
   constructor(props) {
     super(props);
@@ -14,7 +9,13 @@ class EmailInput extends React.Component {
     };
   }
 
-  handleChange(event) {
+  onSubmit(event) {
+    this.props.onUpdate(this.refs.email.value);
+    event.preventDefault();
+    return false;
+  }
+
+  onChange(event) {
     this.setState({value: event.target.value});
   }
 
@@ -24,10 +25,15 @@ class EmailInput extends React.Component {
   
   render() {
     const value = this.state.value;
+    const { email, onUpdate, ...other } = this.props;
 
     return (
       <form onSubmit={this.onSubmit.bind(this)}>
-        <input type="email" ref="email" value={value} onChange={this.handleChange.bind(this)} />
+        <input {...other}
+          type="email"
+          ref="email"
+          value={value}
+          onChange={this.onChange.bind(this)} />
       </form>
     );
   }

@@ -29,6 +29,7 @@ class App extends React.Component {
         <p>Enter an email address to view their gravatar.</p>
 
         <EmailInput
+          className='email-input'
           email={this.props.params.email}
           onUpdate={email => this.updateEmail(email)} />
         
