@@ -1,0 +1,74 @@
+$text-color: #555;
+$font-family: Times New Roman;
+
+body {
+  background-color: #white;
+  color: $text-color;
+  text-align: center;
+  font-family: $font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-color;
+  font-family: $font-family;
+}
+
+a {
+  color: $text-color;
+  font-family: $font-family;
+}
+
+input[type="email"].email-input {
+  background: white;
+  border: none;
+  display: inline;
+  border-radius: 25px;
+  width: 400px;
+  font-size: 200%;
+  color: $text-color;
+}
+
+img.gravatar {
+  border-radius: 50%;
+}
+
+h1 {
+  padding: 50px 0;
+}
+
+.terminal-input {
+  color: white;
+  width: 400px;
+  display: inline;
+}
+
+.terminal-input p {
+  width: 400px;
+  background-color: $text-color;
+  text-align: left;
+  border-radius: 25px;
+  display: inline-block;
+  font-size: 24pt;
+}
+
+.terminal-input-placeholder {
+  font-style: italic;
+  opacity: 0.7;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+.terminal-input-carat.blink {
+  animation: blink 1s step-start 0s infinite;
+}
+

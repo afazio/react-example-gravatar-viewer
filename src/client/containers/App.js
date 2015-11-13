@@ -1,5 +1,5 @@
 import React from 'react'
-import EmailInput from '../components/EmailInput';
+import TerminalInput from '../components/TerminalInput';
 import EmailExamples from '../components/EmailExamples';
 
 class App extends React.Component {
@@ -26,14 +26,16 @@ class App extends React.Component {
     return (
       <div>
         <h1>Gravatar Viewer</h1>
-        <p>Enter an email address to view their gravatar.</p>
 
-        <EmailInput
+        <TerminalInput
           className='email-input'
-          email={this.props.params.email}
+          placeholder="email address"
+          hasInitialFocus={true}
+          prompt="&nbsp;&nbsp;> "
+          initialValue={this.props.params.email}
           onUpdate={email => this.updateEmail(email)} />
         
-        <EmailExamples examples={App.examples()} />
+        {/*<EmailExamples examples={App.examples()} />*/}
 
         { this.props.children }
       </div>

@@ -16,9 +16,10 @@ class GravatarViewer extends React.Component {
 
   render() {
     const hash = this.hashedEmail();
+    const className = this.props.className || "gravatar";
 
     return (
-      <img src={`http://gravatar.com/avatar/${hash}?s=200`} />
+      <img className={className} src={`http://gravatar.com/avatar/${hash}?s=200`} />
     );
   }
 }
