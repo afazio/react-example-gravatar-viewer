@@ -6,8 +6,11 @@ class GravatarViewer extends React.Component {
 
   static className = "gravatar";
 
-  static gravatarUrl(hash, size, method) {
-    return `http://gravatar.com/avatar/${hash}?s=${size}&d=404`;
+  static gravatarUrl(email, size, method) {
+    const trim    = (s) => { return s.replace(/^\s+/, '').replace(/\s+$/, ''); };
+    const cleaned = (s) => { return trim(s.toLowerCase()); };
+    const hash = md5(cleaned(email));
+    return `http://gravatar.com/avatar/${hash}?s=${size}&d=${method}`;
   }
 
   constructor(props) {
@@ -18,30 +21,14 @@ class GravatarViewer extends React.Component {
     };
   }
 
-  trim(s) {
-    return s.replace(/^\s+/, '').replace(/\s+$/, '')
-  }
-
-  cleaned(s) {
-    return this.trim(s.toLowerCase());
-  }
-
-  hashedEmail(email) {
-    return md5(this.cleaned(email || this.props.params.email));
-  }
-
   fetchGravatar(email, size) {
     this.setState({
       fetching: true,
       fetched: false
     });
-    console.log('fetchGravatar(' + email + ')');
     const img = new Image();
-    const hash = this.hashedEmail(email);
     img.onload = () => {
-      console.log('success');
       this.setState({
-        hash,
         email,
         size,
         fetching: false,
@@ -50,9 +37,7 @@ class GravatarViewer extends React.Component {
       });
     };
     img.onerror = () => {
-      console.log('error');
       this.setState({
-        hash,
         email,
         size,
         fetching: false,
@@ -60,7 +45,7 @@ class GravatarViewer extends React.Component {
         exists: false
       });
     };
-    img.src = GravatarViewer.gravatarUrl(hash, size, '404');
+    img.src = GravatarViewer.gravatarUrl(email, size, '404');
   }
 
   size(size) {
@@ -68,21 +53,16 @@ class GravatarViewer extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log('componentWillReceiveProps')
     this.fetchGravatar(props.params.email || this.props.params.email, this.size(props.size));
   }
 
   componentWillMount() {
-    console.log('componentWillMount')
     if (this.props.params.email)
       this.fetchGravatar(this.props.params.email, this.size());
   }
 
   render() {
-    const hash = this.state.hash;
-    const size = this.state.size;
-
-    console.log('render');
+    const { email, size, exists } = this.state;
 
     // if (this.state.fetching) {
     //   return (
@@ -90,14 +70,14 @@ class GravatarViewer extends React.Component {
     //   );
     // }
 
-    if (!this.state.exists) {
+    if (!exists) {
       return (
-        <p><code>{this.state.email}</code> does not have a gravatar.<br /> ┐(‘～`；)┌</p>
+        <p><code>{email}</code> does not have a gravatar.<br /> ┐(‘～`；)┌</p>
       );
     }
 
     return (
-      <img className={GravatarViewer.className} src={GravatarViewer.gravatarUrl(hash, size, 'mm')} />
+      <img className={GravatarViewer.className} src={GravatarViewer.gravatarUrl(email, size, 'mm')} />
     );
   }
 }
