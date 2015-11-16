@@ -44,14 +44,12 @@ export default class TerminalInput extends React.Component {
       const value = this.state.value;
       const length = value.length;
 
-      if (event.target.setSelectionRange) {
+      if (event.target.setSelectionRange)
         // doesn't work in IE
-        console.log('setSelectionRange(' + length*2 + ')');
         event.target.setSelectionRange(length * 2, length * 2) // multiply by two for Opera
-      } else {
-        console.log('text replace');
+      else
         this.refs.hidden.value = this.state.value;
-      }
+
     }, 1);
   }
 
@@ -87,7 +85,7 @@ export default class TerminalInput extends React.Component {
           style={{position: 'absolute', top: -1000, left: -1000}} />
         <div {...other} ref="display" className={className} onClick={this.handleClick.bind(this)}>
           <p>
-            {`${prompt}${value}`}<span className={caratClassName}>|</span><span className="terminal-input-placeholder">{placeholder}</span>
+            {`${prompt}${value}`}<span className={caratClassName}></span><span className="terminal-input-placeholder">{placeholder}</span>
           </p>
         </div>
       </form>

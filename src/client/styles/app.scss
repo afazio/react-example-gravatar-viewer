@@ -33,22 +33,23 @@ img.gravatar {
 }
 
 h1 {
-  padding: 50px 0;
+  padding: 50px 0 0px 0;
 }
 
 .terminal-input {
-  color: white;
-  width: 400px;
+  min-width: 400px;
   display: inline;
 }
 
 .terminal-input p {
-  width: 400px;
+  min-width: 400px;
+  color: white;
   background-color: $text-color;
   text-align: left;
   border-radius: 25px;
   display: inline-block;
   font-size: 24pt;
+  margin-bottom: 30px;
 }
 
 .terminal-input-placeholder {
@@ -68,7 +69,45 @@ h1 {
   }
 }
 
+.terminal-input-carat:before {
+  content: "|";
+  color: #F66;
+}
+
 .terminal-input-carat.blink {
   animation: blink 1s step-start 0s infinite;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1.0;
+  }
+
+  to {
+    opacity: 0.0;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0.0;
+  }
+
+  to {
+    opacity: 1.0;
+  }
+}
+
+.fadein {
+  animation-duration: 0.5s;
+  animation-name: fadein;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.fadeout {
+  animation-duration: 0.5s;
+  animation-name: fadeout;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
