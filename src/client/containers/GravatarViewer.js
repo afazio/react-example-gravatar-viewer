@@ -16,32 +16,19 @@ class GravatarViewer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fetching: this.props.email != undefined,
-      fetched: false
+      exists: false
     };
   }
 
   fetchGravatar(email, size) {
-    this.setState({
-      fetching: true,
-      fetched: false
-    });
     const img = new Image();
     img.onload = () => {
       this.setState({
-        email,
-        size,
-        fetching: false,
-        fetched: true,
         exists: true
       });
     };
     img.onerror = () => {
       this.setState({
-        email,
-        size,
-        fetching: false,
-        fetched: true,
         exists: false
       });
     };
@@ -62,13 +49,9 @@ class GravatarViewer extends React.Component {
   }
 
   render() {
-    const { email, size, exists } = this.state;
-
-    // if (this.state.fetching) {
-    //   return (
-    //     <p>loading ...</p>
-    //   );
-    // }
+    const { exists } = this.state;
+    const { email } = this.props;
+    const size = this.size();
 
     if (!exists) {
       return (
