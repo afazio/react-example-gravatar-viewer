@@ -16,7 +16,7 @@ class GravatarViewer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fetching: this.props.params.email != undefined,
+      fetching: this.props.email != undefined,
       fetched: false
     };
   }
@@ -53,12 +53,12 @@ class GravatarViewer extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    this.fetchGravatar(props.params.email || this.props.params.email, this.size(props.size));
+    this.fetchGravatar(props.email || this.props.email, this.size(props.size));
   }
 
   componentWillMount() {
-    if (this.props.params.email)
-      this.fetchGravatar(this.props.params.email, this.size());
+    if (this.props.email)
+      this.fetchGravatar(this.props.email, this.size());
   }
 
   render() {

@@ -21,6 +21,8 @@ class App extends React.Component {
   }
   
   render() {
+    const { email } = this.props.params;
+
     return (
       <div>
         <h1>Gravatar Viewer</h1>
@@ -31,10 +33,10 @@ class App extends React.Component {
           placeholder="email address"
           hasInitialFocus={true}
           prompt="&nbsp;&nbsp;> "
-          initialValue={this.props.params.email || ""}
+          initialValue={email || ""}
           onUpdate={email => this.updateEmail(email)} />
 
-        { this.props.children }
+        { this.props.children && React.cloneElement(this.props.children, { email }) }
       </div>
     );
   }
