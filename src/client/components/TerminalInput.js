@@ -71,7 +71,7 @@ export default class TerminalInput extends React.Component {
     const value = this.state.value;
     const type = this.props.type || 'text';
     const className = 'terminal-input ' + this.props.className;
-    const caratClassName = 'terminal-input-carat' + (this.state.focused ? ' blink' : '');
+    const caratClassName = 'terminal-input-carat ' + (this.state.focused ? 'blink' : '');
     const placeholder = (!value ? this.props.placeholder : '');
 
     return (
