@@ -4,7 +4,7 @@ import { createReducer } from 'redux-immutablejs';
 export const initialState = Immutable.Map({
   fetched: false,
   exists: false,
-  size: '200'
+  size: '250'
 });
 
 export default createReducer(initialState, {

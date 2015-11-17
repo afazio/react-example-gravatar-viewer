@@ -21,6 +21,21 @@ class GravatarViewer extends React.Component {
     img.src = GravatarViewer.gravatarUrl(email, size, '404');
   }
 
+  setSizeSmall(event) {
+    this.props.actionGravatarChangeSize(100);
+    event.preventDefault();
+  }
+
+  setSizeMedium(event) {
+    this.props.actionGravatarChangeSize(250);
+    event.preventDefault();
+  }
+
+  setSizeLarge(event) {
+    this.props.actionGravatarChangeSize(500);
+    event.preventDefault();
+  }
+
   componentWillReceiveProps(props) {
     if (props.email != this.props.email ||
         props.size != this.props.size)
@@ -41,7 +56,24 @@ class GravatarViewer extends React.Component {
     if (!exists)
       return <p><code>{email}</code> does not have a gravatar.<br /> ┐(‘～`；)┌</p>;
 
-    return <img className={GravatarViewer.className} src={GravatarViewer.gravatarUrl(email, size)} />;
+    return (
+      <div>
+        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeSmall.bind(this)}>&#9642;</a>
+        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeMedium.bind(this)}>&#9726;</a>
+        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeLarge.bind(this)}>&#11035;</a><br />
+        <img className={GravatarViewer.className} src={GravatarViewer.gravatarUrl(email, size)} />
+
+        <style>{`
+          .gravatar-size-input {
+            font-size: 120%;
+          }
+
+          img.gravatar {
+            border-radius: 50%;
+          }
+        `}</style>
+      </div>
+    );
   }
 }
 
