@@ -58,9 +58,9 @@ class GravatarViewer extends React.Component {
 
     return (
       <div>
-        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeSmall.bind(this)}>&#9642;</a>
-        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeMedium.bind(this)}>&#9726;</a>
-        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeLarge.bind(this)}>&#11035;</a><br />
+        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeSmall.bind(this)}>&#9643;</a>
+        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeMedium.bind(this)}>&#9723;</a>
+        <a className={GravatarViewer.className + '-size-input'} href="#" onClick={this.setSizeLarge.bind(this)}>&#11036;</a><br />
         <img className={GravatarViewer.className} src={GravatarViewer.gravatarUrl(email, size)} />
 
         <style>{`
