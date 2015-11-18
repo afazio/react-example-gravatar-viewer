@@ -1,6 +1,6 @@
 {
-  "name": "gravatar",
-  "version": "0.0.0",
+  "name": "gravatar-viewer",
+  "version": "1.0.0",
   "description": "Gravatar viewer",
   "main": "index.js",
   "devDependencies": {
