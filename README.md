@@ -1,7 +1,8 @@
 # react-example-gravatar-viewer
 
-A simple example demonstrating use of React.js, Redux, `react-router`, and `redux-immutablejs`. View
-anyone's gravatar by providing their email address.
+A simple example demonstrating use of React.js, Redux, `react-router`, and
+`redux-immutablejs`. View anyone's gravatar by providing their email address.
+Check out a demo at [here](http://afaz.io/react-example-gravatar-viewer).
 
 # Setup
 
