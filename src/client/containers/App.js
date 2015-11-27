@@ -4,7 +4,7 @@ import { connect  } from 'react-redux';
 
 import TerminalInput from 'components/TerminalInput';
 import EmailExamples from 'components/EmailExamples';
-import * as GravatarActionCreators from 'actions/gravatar';
+import { actionCreators } from 'state/gravatar';
 
 class App extends React.Component {
 
@@ -26,7 +26,7 @@ class App extends React.Component {
             gravatar,
             children,
             params: { email } } = this.props;
-    const gravatarActions = bindActionCreators(GravatarActionCreators, dispatch);
+    const gravatarActions = bindActionCreators(actionCreators, dispatch);
 
     return (
       <div>

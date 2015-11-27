@@ -1,3 +1,3 @@
-import gravatar from 'reducers/gravatar';
+import gravatar from 'state/gravatar';
 
 export { gravatar };

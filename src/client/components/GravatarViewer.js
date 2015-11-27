@@ -13,26 +13,26 @@ class GravatarViewer extends React.Component {
   }
 
   fetchGravatar(email, size) {
-    this.props.actionGravatarFetching();
+    this.props.gravatarFetching();
 
     const img = new Image();
-    img.onload = this.props.actionGravatarFetchedSuccess;
-    img.onerror = this.props.actionGravatarFetchedFail;
+    img.onload = this.props.gravatarFetchedSuccess;
+    img.onerror = this.props.gravatarFetchedFail;
     img.src = GravatarViewer.gravatarUrl(email, size, '404');
   }
 
   setSizeSmall(event) {
-    this.props.actionGravatarChangeSize(100);
+    this.props.gravatarChangeSize(100);
     event.preventDefault();
   }
 
   setSizeMedium(event) {
-    this.props.actionGravatarChangeSize(250);
+    this.props.gravatarChangeSize(250);
     event.preventDefault();
   }
 
   setSizeLarge(event) {
-    this.props.actionGravatarChangeSize(500);
+    this.props.gravatarChangeSize(500);
     event.preventDefault();
   }
 

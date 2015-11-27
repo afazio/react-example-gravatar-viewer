@@ -35,7 +35,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --colors --inline --content-base ./public --watch --config ./config/webpack.config.babel.js"
+    "start": "webpack-dev-server --port 55500 --progress --colors --inline --content-base ./public --watch --config ./config/webpack.config.babel.js",
+    "build": "webpack --progress --colors --config ./config/webpack.config.babel.js"
   },
   "author": "",
   "license": "BSD-2-Clause"
