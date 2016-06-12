@@ -20144,7 +20144,7 @@
 	    var transitionTo = _ref.transitionTo;
 	
 	    function hashChangeListener() {
-	      if (!ensureSlash()) return; // Always make sure hashes are preceeded with a /.
+	      if (!ensureSlash()) return; // Always make sure hashes are preceded with a /.
 	
 	      transitionTo(getCurrentLocation());
 	    }
